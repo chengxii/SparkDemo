@@ -11,12 +11,10 @@
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <scope.type>compile</scope.type>
         <scala.binary.version>2.11</scala.binary.version>
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.11.11</scala.version>
         <spark.version>2.2.1</spark.version>
         <spark.bagel.version>1.6.3</spark.bagel.version>
         <spark.streaming.kafka.version>0-10</spark.streaming.kafka.version>
@@ -25,8 +23,8 @@
         <hadoop.client.version>2.7.3</hadoop.client.version>
         <kafka.version>0.10.2.0</kafka.version>
         <jedis.version>2.9.0</jedis.version>
-        <spring.version>4.3.9.RELEASE</spring.version>
-        <motan.version>0.3.0</motan.version>
+        <spring.version>5.0.5.RELEASE</spring.version>
+        <logback.verson>1.2.3</logback.verson>
     </properties>
 
     <dependencies>
@@ -84,7 +82,46 @@
             <artifactId>spark-sql-kafka-${spark.streaming.kafka.version}_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.5.RELEASE</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.11.0</version>
+        </dependency>
     </dependencies>
-
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgument>-parameters</compilerArgument>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
