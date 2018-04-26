@@ -36,5 +36,4 @@ gen/
 *.rar
 
 /spark-warehouse/
-
-!.gitignore
+!.gitkeep

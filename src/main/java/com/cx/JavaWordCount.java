@@ -35,7 +35,7 @@ public class JavaWordCount {
 
         // String path = JavaWordCount.class.getClassLoader().getResource("words").getFile();
         // JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();
-        String path = "src/main/file/words";
+        String path = "src/main/zfile/words";
         JavaRDD<String> lines = spark.read().textFile(path).javaRDD();
         JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
             @Override

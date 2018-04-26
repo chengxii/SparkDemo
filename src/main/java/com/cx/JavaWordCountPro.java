@@ -26,7 +26,7 @@ public class JavaWordCountPro {
                 .appName("JavaWordCount")
                 .getOrCreate();
 
-        String path = "src/main/file/words";
+        String path = "src/main/zfile/words";
         JavaRDD<String> lines = spark.read().textFile(path).javaRDD();
         // JavaRDD<String> words = lines.flatMap((FlatMapFunction<String, String>) line -> Arrays.asList(SPACE.split(line)).iterator());
         JavaRDD<String> words = lines.flatMap(line -> Arrays.asList(SPACE.split(line)).iterator());
