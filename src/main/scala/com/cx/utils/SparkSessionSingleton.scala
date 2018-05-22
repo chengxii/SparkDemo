@@ -19,8 +19,4 @@ object SparkSessionSingleton {
     }
     instance
   }
-
-  val sparkConf: SparkConf = new SparkConf()
-    .setAppName("cx-demo")
-    .setMaster("local[2]")
 }
